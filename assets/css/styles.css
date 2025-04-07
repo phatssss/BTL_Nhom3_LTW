@@ -1,0 +1,33 @@
+.navbar {
+  background-color: var(--color-one);
+}
+
+.navbar .inner-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar .inner-main .navbar-menu {
+  margin-left: 40px;
+}
+
+.navbar .inner-main .navbar-menu ul {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar .inner-main .navbar-menu ul li {
+  padding: 20px 0;
+}
+
+.navbar .inner-main .navbar-menu ul li a {
+  color: #f5d4d1;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 0;
+}
+
+.navbar .inner-main .navbar-menu ul li a:hover {
+  border-bottom: 2px solid #fff;
+}
