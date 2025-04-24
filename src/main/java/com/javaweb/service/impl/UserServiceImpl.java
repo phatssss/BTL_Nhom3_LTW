@@ -5,13 +5,19 @@ import com.javaweb.entity.RoleEntity;
 import com.javaweb.entity.UserEntity;
 import com.javaweb.model.dto.UserDTO;
 import com.javaweb.model.reponse.ResponseDTO;
+import com.javaweb.model.request.RegisterRequest;
 import com.javaweb.repository.RoleRepository;
 import com.javaweb.repository.UserRepository;
 import com.javaweb.service.UserService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 //import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,8 +26,10 @@ import java.util.List;
 
 @Service
 @Transactional
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
+
+
 
 
     private final UserRepository userRepository;
@@ -30,6 +38,10 @@ public class UserServiceImpl implements UserService {
     private final UserConverter userConverter;
 
     private final RoleRepository roleRepository;
+
+
+
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public List<UserDTO> getAllUsersWithoutStatus() {
@@ -101,5 +113,29 @@ public class UserServiceImpl implements UserService {
            responseDTO.setMessage("delete user successful");
        return responseDTO;
 
+    }
+
+    @Override
+    public ResponseDTO register(RegisterRequest request) {
+        ResponseDTO responseDTO = new ResponseDTO();
+        if(userRepository.existsByUserName(request.getUserName())){
+            throw new RuntimeException("username already exists");
+        }
+
+        RoleEntity role = roleRepository.findById(request.getRoleId())
+                .orElseThrow(() -> new RuntimeException("Invalid Role"));
+        UserEntity user = UserEntity.builder()
+                .fullName(request.getFullName())
+                .userName(request.getUserName())
+                .email(request.getEmail())
+                .phoneNumber(request.getPhoneNumber())
+                .address(request.getAddress())
+                .role(role)
+                .password(passwordEncoder.encode(request.getPassword()))
+                .status(true)
+                .build();
+        userRepository.save(user);
+        responseDTO.setMessage("Register successful");
+        return responseDTO;
     }
 }

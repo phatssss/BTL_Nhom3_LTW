@@ -1,5 +1,6 @@
 package com.javaweb.service;
 
+import com.javaweb.model.request.RegisterRequest;
 import com.javaweb.model.dto.UserDTO;
 import com.javaweb.model.reponse.ResponseDTO;
 import org.springframework.data.domain.Pageable;
@@ -18,5 +19,6 @@ public interface UserService {
     ResponseDTO updateUser(UserDTO UserDTO);
 
     ResponseDTO deleteUser(List<Integer> id);
+    ResponseDTO register(RegisterRequest request);
 
 }
