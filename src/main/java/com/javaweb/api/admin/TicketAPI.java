@@ -4,6 +4,7 @@ import com.javaweb.model.dto.TicketDTO;
 import com.javaweb.model.reponse.ResponseDTO;
 import com.javaweb.service.TicketService;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 //import sun.security.krb5.internal.Ticket;
@@ -14,10 +15,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/admin/ticket")
 @Transactional
+@RequiredArgsConstructor
 public class TicketAPI {
 
-    @Autowired
-    private TicketService ticketService;
+
+    private final TicketService ticketService;
 
     // Lấy ra danh sách vé
 

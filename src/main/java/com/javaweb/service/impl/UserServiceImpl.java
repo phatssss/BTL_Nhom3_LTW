@@ -1,24 +1,31 @@
 package com.javaweb.service.impl;
 
-import com.javaweb.converter.UserConverter;
+
+import com.javaweb.converter.UserConverter;;
 import com.javaweb.entity.RoleEntity;
 import com.javaweb.entity.UserEntity;
 import com.javaweb.model.dto.UserDTO;
 import com.javaweb.model.reponse.ResponseDTO;
+import com.javaweb.model.request.LoginRequest;
 import com.javaweb.model.request.RegisterRequest;
 import com.javaweb.repository.RoleRepository;
 import com.javaweb.repository.UserRepository;
 import com.javaweb.service.UserService;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
-//import org.springframework.beans.factory.annotation.Autowired;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,19 +36,17 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-
-
-
     private final UserRepository userRepository;
-
 
     private final UserConverter userConverter;
 
     private final RoleRepository roleRepository;
 
-
-
     private final PasswordEncoder passwordEncoder;
+
+
+    private final AuthenticationManager authenticationManager;
+
 
     @Override
     public List<UserDTO> getAllUsersWithoutStatus() {
@@ -67,7 +72,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDTO> getUserByCondition(String str, Boolean status) {
         List<UserEntity> userEntities = new ArrayList<>();
-        if (str == null || str.equals("")) {
+        if (str == null || str.isEmpty()) {
             userEntities = userRepository.findByStatus(status);
         } else {
             userEntities = userRepository.findByFullNameContainingIgnoreCaseOrAddressContainingIgnoreCase(str, str);
@@ -99,27 +104,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseDTO deleteUser(List<Integer> ids) {
         int sum = 0;
-       for(Integer itemId : ids) {
-           UserEntity userEntity = userRepository.findById(itemId).get();
-           userEntity.setStatus(false);
-           userRepository.save(userEntity);
-           sum+= 1;
-       }
-       ResponseDTO responseDTO = new ResponseDTO();
-       if(sum<ids.size()) {
-           responseDTO.setMessage("delete user failed");
-       }
-       else
-           responseDTO.setMessage("delete user successful");
-       return responseDTO;
+        for (Integer itemId : ids) {
+            UserEntity userEntity = userRepository.findById(itemId).get();
+            userEntity.setStatus(false);
+            userRepository.save(userEntity);
+            sum += 1;
+        }
+        ResponseDTO responseDTO = new ResponseDTO();
+        if (sum < ids.size()) {
+            responseDTO.setMessage("delete user failed");
+        } else
+            responseDTO.setMessage("delete user successful");
+        return responseDTO;
 
     }
 
     @Override
-    public ResponseDTO register(RegisterRequest request) {
-        ResponseDTO responseDTO = new ResponseDTO();
-        if(userRepository.existsByUserName(request.getUserName())){
-            throw new RuntimeException("username already exists");
+    public String register(RegisterRequest request) {
+        if (userRepository.existsByUserName(request.getUserName())) {
+            throw new IllegalStateException("Username already exists");
         }
 
         RoleEntity role = roleRepository.findById(request.getRoleId())
@@ -135,7 +138,22 @@ public class UserServiceImpl implements UserService {
                 .status(true)
                 .build();
         userRepository.save(user);
-        responseDTO.setMessage("Register successful");
-        return responseDTO;
+        return "User registered successfully";
     }
+
+    @Override
+    public String login(LoginRequest loginRequest) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginRequest.getUserName(), loginRequest.getPassword())
+        );
+        return "Login success !!!";
+    }
+
+    @Override
+    public UserDTO getCustomerProfile(Integer id) {
+        UserEntity userEntity = userRepository.findById(id).get();
+        return userConverter.toUserDTO(userEntity);
+    }
+
+
 }

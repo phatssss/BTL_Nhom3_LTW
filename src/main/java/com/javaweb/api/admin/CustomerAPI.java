@@ -4,6 +4,7 @@ import com.javaweb.model.dto.UserDTO;
 import com.javaweb.model.reponse.ResponseDTO;
 import com.javaweb.service.UserService;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +13,11 @@ import java.util.List;
 @RestController
 @Transactional
 @RequestMapping("/api/admin/customer")
+@RequiredArgsConstructor
 public class CustomerAPI {
 
-    @Autowired
-    private UserService userService;
+//    @Autowired
+    private final UserService userService;
 
     // Lấy ra danh sách người dùng
     @GetMapping

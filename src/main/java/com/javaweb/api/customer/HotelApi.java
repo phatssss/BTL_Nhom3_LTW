@@ -4,6 +4,7 @@ package com.javaweb.api.customer;
 import com.javaweb.model.dto.HotelDTO;
 import com.javaweb.service.HotelService;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +17,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/customer/hotel")
 @Transactional
+@RequiredArgsConstructor
 public class HotelApi {
 
-    @Autowired
-    private HotelService hotelService;
+
+    private final HotelService hotelService;
 
     @GetMapping("/search")
     public List<HotelDTO> getHotelsByCondition(@RequestParam Map<String, Object> condition) {

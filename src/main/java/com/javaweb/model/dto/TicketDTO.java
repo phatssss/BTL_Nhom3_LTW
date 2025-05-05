@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 
-public class TicketDTO extends AbstractDTO {
+public class TicketDTO  {
 
     private Integer id;
 

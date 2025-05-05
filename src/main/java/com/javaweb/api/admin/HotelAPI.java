@@ -4,6 +4,7 @@ import com.javaweb.model.dto.HotelDTO;
 import com.javaweb.model.reponse.ResponseDTO;
 import com.javaweb.service.HotelService;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,11 +14,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/admin/hotel")
 @Transactional
+@RequiredArgsConstructor
 public class HotelAPI {
 
 
-    @Autowired
-    private HotelService hotelService;
+
+    private final HotelService hotelService;
 
 
     @GetMapping

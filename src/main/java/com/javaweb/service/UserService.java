@@ -1,5 +1,6 @@
 package com.javaweb.service;
 
+import com.javaweb.model.request.LoginRequest;
 import com.javaweb.model.request.RegisterRequest;
 import com.javaweb.model.dto.UserDTO;
 import com.javaweb.model.reponse.ResponseDTO;
@@ -19,6 +20,10 @@ public interface UserService {
     ResponseDTO updateUser(UserDTO UserDTO);
 
     ResponseDTO deleteUser(List<Integer> id);
-    ResponseDTO register(RegisterRequest request);
+
+    String register(RegisterRequest registerRequest);
+    String login(LoginRequest loginRequest);
+
+    UserDTO getCustomerProfile(Integer id);
 
 }

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class UserDTO extends AbstractDTO {
+public class UserDTO {
 
     private Integer id;
     private String fullName;

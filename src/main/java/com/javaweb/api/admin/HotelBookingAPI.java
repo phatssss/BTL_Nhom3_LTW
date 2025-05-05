@@ -6,6 +6,7 @@ import com.javaweb.model.dto.HotelPriceStatsDTO;
 
 import com.javaweb.service.HotelBookingService;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +17,11 @@ import java.util.List;
 @RestController
 @Transactional
 @RequestMapping("/api/admin/hotel/booking")
+@RequiredArgsConstructor
 public class HotelBookingAPI {
 
-    @Autowired
-    private HotelBookingService hotelBookingService;
+
+    private final HotelBookingService hotelBookingService;
 
     @GetMapping
     public List<HotelBookingDTO> getHotelBookings() {

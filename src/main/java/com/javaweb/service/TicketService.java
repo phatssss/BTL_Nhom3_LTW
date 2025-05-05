@@ -14,4 +14,6 @@ public interface TicketService {
     ResponseDTO save(TicketDTO ticketDTO);
 
     ResponseDTO deleteTickets(List<Long> ids);
+
+    TicketDTO getTicketDetails(Integer id);
 }

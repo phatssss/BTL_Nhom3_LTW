@@ -89,4 +89,10 @@ public class TicketServiceImpl implements TicketService {
         return responseDTO;
     }
 
+    @Override
+    public TicketDTO getTicketDetails(Integer id) {
+        TicketEntity ticketEntity = ticketRepository.findById(id).get();
+        return ticketConverter.toDTO(ticketEntity);
+    }
+
 }
