@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Data
 public class BookingHistoryDTO {
 
+    private Integer id;
     private String fullNameCustomer;
     private String airlineName;
     private String origin;

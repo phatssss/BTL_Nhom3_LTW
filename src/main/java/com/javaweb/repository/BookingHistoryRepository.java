@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface BookingHistoryRepository extends JpaRepository<BookingHistoryEntity, Integer>, BookingHistoryCustomRepository {
     void deleteByticket_IdIn(List<Long> ticketids);
+
+    List<BookingHistoryEntity> findAllByUserId(Integer userId);
 }
