@@ -1,0 +1,12 @@
+<ul> 
+                                    <li><a href="#"><i class="fa-solid fa-cart-shopping nav-item"></i></a></li>
+                                    <li><button id="openLogin"><i class="fa-solid fa-circle-user nav-icon"></i>Đăng nhập</button></li>
+                                    <li><a href="register.html">Đăng kí</a></li>    
+                                    <li><span id="userLogin"></span></li>                                  
+                                    <!-- <li>
+                                        <span id="userLogin" style="display: none;">
+                                            <i class="fa-solid fa-circle-user nav-icon"></i>
+                                            Xin chào, <span class="username"></span>
+                                        </span>
+                                    </li> -->
+                                </ul>
