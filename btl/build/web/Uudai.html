@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giá vé máy bay</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .discount-badge {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background-color: #0dcaf0;
+      color: white;
+      font-weight: bold;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+    }
+    .flight-card {
+      position: relative;
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      padding: 1rem;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      height: 100%;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .flight-card:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      transform: translateY(-4px);
+    }
+    .flight-price {
+      color: red;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+    .flight-icon {
+      font-size: 1.5rem;
+    }
+    .hidden-card {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+<div class="container py-4">
+  <div class="row g-4" id="cardContainer">
+
+    <!-- Card mẫu, copy thêm nhiều cái tùy ý -->
+    <!-- 1 -->
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Hà Nội (HAN)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 1.007.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+
+    <!-- ví dụ thêm nhiều card để test -->
+<div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+<div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 flight-item">
+      <div class="flight-card">
+        <div class="discount-badge">⬇️ 52%</div>
+        <div><strong>Từ Đà Nẵng (DAD)</strong></div>
+        <div class="mb-2"><span class="flight-icon">✈️</span> Tp. Hồ Chí Minh (SGN)</div>
+        <div class="text-muted">T3, 23 Th09 • Bay thẳng</div>
+        <div class="mt-2 flight-price">₫ 707.730</div>
+        <div class="text-muted">Giá / Người</div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Nút Hiện thêm -->
+  <div class="text-center mt-4">
+      <button class="btn btn-primary" id="toggleBtn"  >Hiện thêm</button>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll(".flight-item");
+  const toggleBtn = document.getElementById("toggleBtn");
+  let isExpanded = false;
+
+  function updateVisibility() {
+    items.forEach((item, index) => {
+      if (index < 6 || isExpanded) {
+        item.classList.remove("hidden-card");
+      } else {
+        item.classList.add("hidden-card");
+      }
+    });
+    toggleBtn.textContent = isExpanded ? "Ẩn bớt" : "Hiện thêm";
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    isExpanded = !isExpanded;
+    updateVisibility();
+  });
+
+  // Hiển thị ban đầu
+  updateVisibility();
+</script>
+
+</body>
+</html>

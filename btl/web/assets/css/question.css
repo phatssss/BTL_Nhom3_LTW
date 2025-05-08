@@ -1,0 +1,44 @@
+accordion-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    font-size: 15px;
+  }
+
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .accordion-header:hover {
+    color: #e60000;
+  }
+
+  .accordion-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-icon.rotate {
+    transform: rotate(45deg);
+  }
+
+  .accordion-content {
+    display: none;
+    margin-top: 10px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .accordion-content.active {
+    display: block;
+  }
+  .info-text {
+    max-width: 1200px;  /* hoặc dùng chiều rộng bằng phần card trên */
+    margin: 0 auto;      /* canh giữa theo chiều ngang */
+    padding: 0 20px;     /* tương tự như phần trên nếu có */
+  }

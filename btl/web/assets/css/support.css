@@ -1,0 +1,82 @@
+.box_input{
+    height: 300px;
+    width: auto;
+    background-color: rgb(255 72 78/var(--tw-bg-opacity,1));
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    background-repeat: no-repeat;
+    
+}
+.hero {
+    background-color: #f94f4f;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    background-image: url("/web/img/anhbia.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .search-box {
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .search-box input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    color: #555;
+  }
+
+  .search-box img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .illustration {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+  }
+
+  .illustration.left {
+    left: 30px;
+  }
+
+  .illustration.right {
+    right: 30px;
+  }
+
+  @media (max-width: 768px) {
+    .illustration {
+      display: none;
+    }
+  }
+  .container {
+    min-width: 1200px; /* Không co lại dưới 1200px */
+  }
+  b{
+    font-weight: bold;
+  }
+  .img-fluid{
+    height: 20%;
+  }
+  
